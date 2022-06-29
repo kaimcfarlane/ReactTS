@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReactTS</title>
     <script defer src="reaction.js"></script>
+    <script defer src="typer.js"></script>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="typer.css">
 </head>
 <body>
     <div class="area">
@@ -38,6 +40,20 @@
                 </div>
             </div>
         </header>    
+
+        <section id="game">
+            <header id="gameHeader">
+                <button id="startButton" onclick="startGame()">START</button>
+                <h1>SCORE</h1>
+                <h1 id="helpTitle" onclick="revealHelpText()">HELP</h1>
+            </header>
+            <text id="helpText">Click the green buttons as quick as possible, however don't click the red ones, they lose points! You have until Times Up!</text>
+            <h2 id="time">TIME: 30</h2>
+
+            <div id="clickArea">
+
+            </div>
+        </section>
 
         
     </div >   
