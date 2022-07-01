@@ -70,6 +70,6 @@ body {
   background: greenyellow;
   right: 0%;
   top: 0px;
-  display: block;
+  display: none;
   position: absolute;
 }

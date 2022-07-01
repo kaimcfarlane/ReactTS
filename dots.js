@@ -5,10 +5,14 @@ function startGame() {
     if(timerVis) {
         timer.style.display = "none";
         timerVis = false;
+        document.getElementsByClassName("dot")[0].style.display = "none";
     }
     else {
         timer.style.display = "block";
         timerVis = true;
+        document.getElementsByClassName("dot")[0].style.display = "block";
+        document.getElementsByClassName("dot")[0].style.right = randomPos(0,100) + "%";
+        document.getElementsByClassName("dot")[0].style.top = randomPos(60,727) + "px";
         var itv1 = setInterval(function countDown() {
             startTime--;
             console.log("success " + startTime);
@@ -24,7 +28,7 @@ function startGame() {
 var red = "#ff392f";
 var green = "greenyellow";
 var points = 0
-userScore = document.getElementById("userScore");
+var userScore = document.getElementById("userScore");
 function score() { 
     //Issue is that color isn't being assinged any value ( just go to console and fix)
     // color = document.getElementsByClassName("dot")[0].style.background;
@@ -48,6 +52,9 @@ function score() {
         document.getElementsByClassName("dot")[0].style.background = red;
     }
 
+    document.getElementsByClassName("dot")[0].style.right = randomPos(0,100) + "%";
+    document.getElementsByClassName("dot")[0].style.top = randomPos(60,727) + "px";
+
     
 
 
@@ -55,6 +62,10 @@ function score() {
 
 
     console.log("color is " + document.getElementsByClassName("dot")[0].style.background + " and score is " + points);
+}
+
+function randomPos(min, max) {
+    return Math.random() * (max - min) + min;
 }
 
 
