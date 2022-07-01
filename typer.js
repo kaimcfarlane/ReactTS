@@ -13,7 +13,7 @@ function startGame() {
             startTime--;
             console.log("success " + startTime);
             timer.innerHTML = "TIME: " + startTime;
-            if(startTime <= 0)
+            if(startTime <= 0 || startTime < 1)
             {
                 clearInterval(itv1);
             }
