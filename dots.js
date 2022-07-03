@@ -24,7 +24,34 @@ function startGame() {
             }
 
         }, 1000);
-        setInterval(setSpawn, 2500);
+        var space = 2500;
+        function start()
+        {
+        setTimeout(function() {
+            if (space>=1000)
+            {
+                space -= 160;
+                setSpawn();
+                start();
+            }
+            else if (space>=350){
+                space -=50;
+                setSpawn();
+                start();
+            }
+            else {
+                setSpawn();
+                start();
+            }
+        }, space);
+        }
+        start();
+
+        // setInterval(function() {
+        //     space -= 500;
+        //     setSpawn();
+        //     console.log(space);
+        // },space);
     }
 }
 
