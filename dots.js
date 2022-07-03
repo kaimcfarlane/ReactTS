@@ -31,6 +31,13 @@ function startGame() {
 function setSpawn() {
     document.getElementsByClassName("dot")[0].style.right = randomPos(0,96) + "%";
     document.getElementsByClassName("dot")[0].style.top = randomPos(100,727) + "px";
+    var num = Math.round(Math.random());
+    if (num==0) {
+        document.getElementsByClassName("dot")[0].style.background = green;
+    }
+    else {
+        document.getElementsByClassName("dot")[0].style.background = red;
+    }
 }
 
 var red = "#ff392f";
