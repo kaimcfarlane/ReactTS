@@ -7,12 +7,13 @@ function startGame() {
         timerVis = false;
         document.getElementsByClassName("dot")[0].style.display = "none";
     }
-    else {
+    if(startTime<=0) {
+        startTime = 30;
         timer.style.display = "block";
         timerVis = true;
         document.getElementsByClassName("dot")[0].style.display = "block";
-        document.getElementsByClassName("dot")[0].style.right = randomPos(0,96) + "%";
-        document.getElementsByClassName("dot")[0].style.top = randomPos(100,727) + "px";
+        document.getElementsByClassName("dot")[0].style.right = randomPos(0,93) + "%";
+        document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
         var itv1 = setInterval(function countDown() {
             startTime--;
             console.log("success " + startTime);
@@ -27,7 +28,7 @@ function startGame() {
         var space = 2500;
         function start()
         {
-        setTimeout(function() {
+        var spawnIncreaseTo = setTimeout(function() {
             if (space>=1000)
             {
                 space -= 160;
@@ -39,6 +40,9 @@ function startGame() {
                 setSpawn();
                 start();
             }
+            else if(startTime<=0) {
+                clearTimeout(spawnIncreaseTo);
+            }
             else {
                 setSpawn();
                 start();
@@ -46,18 +50,56 @@ function startGame() {
         }, space);
         }
         start();
+    }
+    else {
+        timer.style.display = "block";
+        timerVis = true;
+        document.getElementsByClassName("dot")[0].style.display = "block";
+        document.getElementsByClassName("dot")[0].style.right = randomPos(0,93) + "%";
+        document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
+        var itv1 = setInterval(function countDown() {
+            startTime--;
+            console.log("success " + startTime);
+            timer.innerHTML = "TIME: " + startTime;
+            if(startTime <= 0 || startTime < 1)
+            {
+                clearInterval(itv1);
+                document.getElementsByClassName("dot")[0].style.display = "none";
+            }
 
-        // setInterval(function() {
-        //     space -= 500;
-        //     setSpawn();
-        //     console.log(space);
-        // },space);
+        }, 1000);
+        var space = 2500;
+        function start()
+        {
+        var spawnIncreaseTo = setTimeout(function() {
+            if (space>=1000)
+            {
+                space -= 160;
+                setSpawn();
+                start();
+            }
+            else if (space>=350){
+                space -=50;
+                setSpawn();
+                start();
+            }
+            else if (startTime<=0) {
+                clearTimeout(spawnIncreaseTo);
+            }
+            else{
+                setSpawn();
+                start();
+            }
+        }, space);
+        }
+        start();
+
     }
 }
 
 function setSpawn() {
-    document.getElementsByClassName("dot")[0].style.right = randomPos(0,96) + "%";
-    document.getElementsByClassName("dot")[0].style.top = randomPos(100,727) + "px";
+    document.getElementsByClassName("dot")[0].style.right = randomPos(0,93) + "%";
+    document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
     var num = Math.round(Math.random());
     if (num==0) {
         document.getElementsByClassName("dot")[0].style.background = green;
@@ -95,8 +137,8 @@ function score() {
         document.getElementsByClassName("dot")[0].style.background = red;
     }
 
-    document.getElementsByClassName("dot")[0].style.right = randomPos(0,96) + "%";
-    document.getElementsByClassName("dot")[0].style.top = randomPos(100,727) + "px";
+    document.getElementsByClassName("dot")[0].style.right = randomPos(0,93) + "%";
+    document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
     console.log("color is " + document.getElementsByClassName("dot")[0].style.background + " and score is " + points);
 }
 
