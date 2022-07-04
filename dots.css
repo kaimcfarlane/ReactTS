@@ -72,6 +72,7 @@ body {
   top: 0px;
   display: none;
   position: absolute;
+  cursor: pointer;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
