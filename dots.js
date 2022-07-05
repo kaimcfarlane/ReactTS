@@ -9,6 +9,16 @@ function startGame() {
         document.getElementsByClassName("dot")[0].style.display = "none";
     }
     if(startTime<=0) {
+        
+        var helpText = document.getElementById("helpText");
+        if(helpText.style.display == "block") {
+            helpText.style.display = "none";
+        }
+        else {
+            helpText.style.display = "block";
+        }
+
+
         startButton.innerHTML = "START";
         startTime = 30;
         timer.style.display = "block";
@@ -54,6 +64,13 @@ function startGame() {
         start();
     }
     else {
+        var helpText = document.getElementById("helpText");
+        if(helpText.style.display == "block") {
+            helpText.style.display = "none";
+        }
+        else {
+            helpText.style.display = "block";
+        }
         startButton.innerHTML = "START";
         timer.style.display = "block";
         timerVis = true;
