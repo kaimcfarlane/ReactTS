@@ -14,10 +14,9 @@ function startGame() {
         if(helpText.style.display == "block") {
             helpText.style.display = "none";
         }
-        else {
-            helpText.style.display = "block";
-        }
 
+        userScore.innerHTML = "SCORE:";
+        points = 0;
 
         startButton.innerHTML = "START";
         startTime = 30;
@@ -67,9 +66,6 @@ function startGame() {
         var helpText = document.getElementById("helpText");
         if(helpText.style.display == "block") {
             helpText.style.display = "none";
-        }
-        else {
-            helpText.style.display = "block";
         }
         startButton.innerHTML = "START";
         timer.style.display = "block";
@@ -149,6 +145,7 @@ function score() {
         points--;
         userScore.innerHTML = "SCORE: " + points;
     }
+
 
     var num = Math.round(Math.random());
     if (num==0) {
