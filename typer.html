@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="typer.css">
 </head>
 <body>
-    <div class="area">
+    <div class="area" id="background">
 
         <ul class="circles">
             <li>Apple</li>
@@ -29,6 +29,20 @@
             <h1 id="mainTitle">
                 Test Your TYPER Reaction Speed!
             </h1>
+
+            <ul class="tg-list">
+                <!-- <li class="tg-list-item">
+                    <h4>MODE</h4>
+                    <input class="tgl tgl-skewed" id="cb3" type="checkbox"/>
+                    <label class="tgl-btn" data-tg-off="MUSIC" data-tg-on="STORY" for="cb3"></label>
+                </li> -->
+                <li class="tg-list-item">
+                    <h4>MODE</h4>
+                    <input class="tgl tgl-flip" id="cb5" type="checkbox"/>
+                    <label class="tgl-btn" data-tg-off="MUSIC" data-tg-on="STORY" for="cb5"></label>
+                  </li>
+            </ul>
+
             <div id="dropdown">
                 <button id="gameChoiceBtn" onclick="openList()"> 
                             Choose a Game
@@ -44,7 +58,23 @@
         <section id="game">
             <header id="gameHeader">
                 <button id="startButton" onclick="startGame()">START</button>
-                <h1>SCORE</h1>
+                
+                
+                <!-- <h1>SCORE</h1> -->
+                <nav>
+                    <input id="toggle" type="checkbox" checked>
+                   <h2>Difficulty</h2>
+                 <ul>
+                   <li><a href="#" class="difficultyChoice" onclick="chooseDifEasy()">EASY</a></li>
+                   <li><a href="#" class="difficultyChoice" onclick="chooseDifMed()">MEDIUM</a></li>
+                   <li><a href="#" class="difficultyChoice" onclick="chooseDifHard()">HARD</a></li>
+                   <!-- <li><a href="#">Chapter 04</a></li> -->
+                 </ul>
+              </nav>
+
+            
+
+                            
                 <h1 id="helpTitle" onclick="revealHelpText()">HELP</h1>
             </header>
             <text id="helpText">Click the green buttons as quick as possible, however don't click the red ones, they lose points! You have until Times Up!</text>

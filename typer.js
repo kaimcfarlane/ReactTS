@@ -21,5 +21,19 @@ function startGame() {
     }
 }
 
+var easyMode = document.getElementsByClassName("difficultyChoice")[0];
+var medMode = document.getElementsByClassName("difficultyChoice")[1];
+var hardMode = document.getElementsByClassName("difficultyChoice")[2];
+var background = document.getElementById("background");
+function chooseDifEasy() {
+    background.style.background = "#4ec864";
+}
+function chooseDifMed() {
+    background.style.background = "orange";
+}
+function chooseDifHard() {
+    background.style.background = "#c84e4e"
+}
+
 // get cricle li from index.css for this html page and make background nothing.
 //#4ec864, #c84e4e, #2d81c7
