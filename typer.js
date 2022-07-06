@@ -42,9 +42,16 @@ function gameModeSelect(){
         isMusic = false;
 
     }
+    else {
+        isMusic = true;
+        for(var i=1;i<10;i++) {
+            var img = document.getElementsByClassName("img")[i];
+            // floatyWords.fontSize = 0;
+            img.style.display = "block";
+        }
+    }
     
 }
 
-floatWords.style.background = "";
 // get cricle li from index.css for this html page and make background nothing.
 //#4ec864, #c84e4e, #2d81c7
