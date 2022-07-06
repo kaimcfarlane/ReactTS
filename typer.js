@@ -20,3 +20,6 @@ function startGame() {
         }, 1000);
     }
 }
+
+// get cricle li from index.css for this html page and make background nothing.
+//#4ec864, #c84e4e, #2d81c7
