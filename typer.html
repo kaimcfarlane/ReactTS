@@ -12,7 +12,7 @@
 <body>
     <div class="area" id="background">
 
-        <ul class="circles">
+        <ul class="circles" id="floatyCircles">
             <li>Apple</li>
             <li>Banana</li>
             <li>Carrot</li>
@@ -38,7 +38,7 @@
                 </li> -->
                 <li class="tg-list-item">
                     <h4>MODE</h4>
-                    <input class="tgl tgl-flip" id="cb5" type="checkbox"/>
+                    <input class="tgl tgl-flip" id="cb5" type="checkbox" onclick="gameModeSelect()"/>
                     <label class="tgl-btn" data-tg-off="MUSIC" data-tg-on="STORY" for="cb5"></label>
                   </li>
             </ul>
@@ -77,7 +77,7 @@
                             
                 <h1 id="helpTitle" onclick="revealHelpText()">HELP</h1>
             </header>
-            <text id="helpText">Click the green buttons as quick as possible, however don't click the red ones, they lose points! You have until Times Up!</text>
+            <text id="helpText">Pick whether you want to type a story or a song, then your difficulty. Hit START and type away, you have 30 seconds to write as fast as possible</text>
             <h2 id="time">TIME: 30</h2>
 
             <div id="clickArea">

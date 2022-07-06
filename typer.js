@@ -35,5 +35,16 @@ function chooseDifHard() {
     background.style.background = "#c84e4e"
 }
 
+var isMusic = true;
+var floatWords = document.getElementById('floatyCircles').getElementsByTagName('li');
+function gameModeSelect(){
+    if(isMusic) {
+        isMusic = false;
+
+    }
+    
+}
+
+floatWords.style.background = "";
 // get cricle li from index.css for this html page and make background nothing.
 //#4ec864, #c84e4e, #2d81c7
