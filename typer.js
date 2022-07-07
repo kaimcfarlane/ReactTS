@@ -37,21 +37,31 @@ function chooseDifHard() {
 
 var isMusic = true;
 var floatWords = document.getElementById('floatyCircles').getElementsByTagName('li');
+
 function gameModeSelect(){
     if(isMusic) {
         isMusic = false;
+        for(var i=0;i<10;i++) {
+            var img = document.getElementsByClassName("img")[i];
+            // floatyWords.fontSize = 0;
+            img.style.display = "none";
+        }
 
     }
     else {
         isMusic = true;
-        for(var i=1;i<10;i++) {
+        
+        for(var i=0;i<10;i++) {
             var img = document.getElementsByClassName("img")[i];
-            // floatyWords.fontSize = 0;
+            floatWords[i].fontSize = 0;
+            console.log(floatWords);
             img.style.display = "block";
         }
     }
     
 }
+
+//add new img to apple in html that is circular or block, make text dissapear when imgs on, we start on music so imgs firts then text;
 
 // get cricle li from index.css for this html page and make background nothing.
 //#4ec864, #c84e4e, #2d81c7
