@@ -21,18 +21,46 @@ function startGame() {
     }
 }
 
+
+
 var easyMode = document.getElementsByClassName("difficultyChoice")[0];
 var medMode = document.getElementsByClassName("difficultyChoice")[1];
 var hardMode = document.getElementsByClassName("difficultyChoice")[2];
 var background = document.getElementById("background");
+var gameChoiceBtn = document.getElementById("gameChoiceBtn");
+var gameSelect = document.getElementById("gameSelect");
+// var dif = "";
+
+// function changeBtnColor() {
+//     if(dif=="easy") {
+//         gameChoiceBtn.style.background = "#4ec864";
+//     }
+//     else if(dif=="med") {
+//         gameChoiceBtn.style.background = "orange";
+//     }
+//     else {
+//         gameChoiceBtn.style.background = "#c84e4e";
+//     }
+// }
+
+
 function chooseDifEasy() {
+    // dif ="easy";
     background.style.background = "#4ec864";
+    gameChoiceBtn.style.background = "#4ec864";
+    // gameChoiceBtn.addEventListener("mouseover", changeBtnColor);
 }
 function chooseDifMed() {
+    // dif = "med";
     background.style.background = "orange";
+    gameChoiceBtn.style.background = "orange";
+    // gameChoiceBtn.addEventListener("mouseover", changeBtnColor);
 }
 function chooseDifHard() {
-    background.style.background = "#c84e4e"
+    // dif = "hard";
+    background.style.background = "#c84e4e";
+    gameChoiceBtn.style.background = "#c84e4e";
+    // gameChoiceBtn.addEventListener("mouseover", changeBtnColor);
 }
 
 var isMusic = true;
