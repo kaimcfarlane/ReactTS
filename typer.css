@@ -45,6 +45,34 @@ body {
 #volume {
   padding-left: 10px;
 }
+
+#banana {
+  padding-left: 8px;
+}
+
+#carrot {
+  padding-left: 7px;
+}
+
+#diamond {
+  padding-left: 16px;
+}
+
+#fire {
+  margin-left: -6px;
+}
+
+#gorilla {
+  padding-left: 5px;
+}
+
+#helmet {
+  padding-left: 8px;
+}
+
+#jackal {
+  padding-left: 3px;
+}
 /* .circles li {
   position: absolute;
   display: block;
