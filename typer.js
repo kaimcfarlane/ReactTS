@@ -37,6 +37,10 @@ function chooseDifHard() {
 
 var isMusic = true;
 var floatWords = document.getElementById('floatyCircles').getElementsByTagName('li');
+var floatItem = document.getElementsByClassName("word");
+const wordArr1 = ["String", "Listen", "Keyboard", "Cloud", "Piano", "Headset", "Note", "Sound", "Volume", "Lyric"];
+const wordArr2 = ["Apple", "Banana", "Carrot", "Diamond", "Earth", "Fire", "Gorilla", "Helmet", "Iceberg", "Jackal"];
+
 
 function gameModeSelect(){
     if(isMusic) {
@@ -45,6 +49,9 @@ function gameModeSelect(){
             var img = document.getElementsByClassName("img")[i];
             // floatyWords.fontSize = 0;
             img.style.display = "none";
+            var img2 = document.getElementsByClassName("img2")[i];
+            img2.style.display = "block";
+            floatItem[i].innerHTML = wordArr2[i];
         }
 
     }
@@ -53,9 +60,11 @@ function gameModeSelect(){
         
         for(var i=0;i<10;i++) {
             var img = document.getElementsByClassName("img")[i];
-            floatWords[i].fontSize = 0;
             console.log(floatWords);
             img.style.display = "block";
+            var img2 = document.getElementsByClassName("img2")[i];
+            img2.style.display = "none";
+            floatItem[i].innerHTML = wordArr1[i];
         }
     }
     
