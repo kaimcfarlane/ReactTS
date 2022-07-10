@@ -73,6 +73,10 @@ body {
   padding-left: 8px;
 }
 
+#iceberg {
+  padding-left: 9px;
+}
+
 #jackal {
   padding-left: 3px;
 }
@@ -499,4 +503,69 @@ li {
 }
 .tgl-flip:checked + .tgl-btn:active:after {
   transform: rotateY(20deg);
+}
+
+#bigGameContent {
+  display: flex;
+  justify-content: center;
+}
+
+#gameContent {
+  /* background-color: rgba(255, 255, 255, 0.358); */
+  /* background-color: #fff; */
+  /* padding: 1rem; */
+  /* border-radius: 10px; */
+  position: relative;
+  margin-top: 150px;
+  min-width: 75%;
+}
+
+#gameContentHeader {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #485461;
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+  box-shadow: 0 0 0.25em rgb(0 0 0 / 25%);
+}
+
+.scoreCounter {
+  display: inline;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: rgb(255, 255, 255);
+  z-index: 3;
+}
+
+#genText {
+  padding-bottom: 5px;
+  font-size: 21px;
+  margin-right: 425px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  /* padding: 20px; */
+}
+
+#typeSpace {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.358);
+  border-radius: 2px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+#typeBox {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  /* min-width: 500px; */
+  min-width: 70%;
+  max-height: 50px;
+  font-size: 20px;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  resize: none;
+}
+
+#typeBox:focus {
+  border-color: #28313b;
 }
