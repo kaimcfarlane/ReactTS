@@ -564,6 +564,7 @@ li {
   border-radius: 5px;
   padding: 10px;
   resize: none;
+  display: inline-block;
 }
 
 #typeBox:focus {
