@@ -11,6 +11,8 @@ var docScore = document.getElementById("Score");
 var text = "";
 var opaqueBackground = document.getElementById("typeSpace");
 var checkbox = document.getElementById("checkbox");
+var LPM = document.getElementById("LPM");
+var WPM = document.getElementById("WPM");
 
 //runs game when start button clicked and resets game when button clicked again
 function startGame() {
@@ -29,11 +31,17 @@ function startGame() {
             startTime--;
             // console.log("success " + startTime);
             timer.innerHTML = "TIME: " + startTime;
+            if(startTime == 1){
+                endWordCount();
+                console.log(wordsTyped);
+            }
             if(startTime <= 0 || startTime < 1)
             {
                 clearInterval(itv1);
                 textDisplay.innerText = "TIMES UP!";
                 inputText.style.display = "none";
+                LPM.innerText = "LPM " + charTyped;
+                WPM.innerText = "WPM " + wordsTyped;
             }
         }, 1000);
     }
@@ -76,18 +84,32 @@ inputText.addEventListener("input", () => {
     {
         returnSnippet(text);
         console.log(score);
-    }
-
-    if(text.split(' ').slice(x,x++).join(' ') === inputText.value.split(' ').slice(x,x++).join(' '))
-    {
-        wordsTyped++;
-        x++;
-        console.log(x + "Word was typed " + inputText.value.split(' ').slice(x,x++).join(' ') + " === " + text.split(' ').slice(x,x++).join(' '));
+        disText.forEach((disCharacter, pos) => {
+            var inputChar = inputCharacters[pos];
+            if(inputChar == " ") 
+            {
+                wordsTyped++;
+                console.log(wordsTyped + " words have been typed");
+            }
+        })
     }
     charTyped++;
 
     console.log("changed");
 })
+
+function endWordCount() {
+    var disText = textDisplay.querySelectorAll('span');
+    var inputCharacters = inputText.value.split('');
+    disText.forEach((disCharacter, pos) => {
+        var inputChar = inputCharacters[pos];
+        if(inputChar == " ") 
+        {
+            wordsTyped++;
+            console.log(wordsTyped + " words have been typed");
+        }
+    })
+}
 
 
 //returns snippet of text from whole text and keeps a minimum number to keep track of where text it is
@@ -144,7 +166,7 @@ function chooseDifEasy() {
     dif ="easy";
     background.style.background = "#4ec864";
     gameChoiceBtn.style.background = "#4ec864";
-    opaqueBackground.style.backgroundColor =  "rgb(0 0 0 / 33%)";
+    // opaqueBackground.style.backgroundColor =  "rgb(0 0 0 / 33%)";
     // gameChoiceBtn.addEventListener("mouseover", changeBtnColor);
 }
 function chooseDifMed() {
