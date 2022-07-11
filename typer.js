@@ -1,6 +1,18 @@
+//instance variables
 var timerVis = false
 var timer = document.getElementById("time");
-let startTime = 30;
+let startTime = 60;
+var textDisplay = document.getElementById("genText");
+var inputText = document.getElementById("typeBox");
+var score = 0;
+var charTyped = 0;
+var wordsTyped = 0;
+var docScore = document.getElementById("Score");
+var text = "";
+var opaqueBackground = document.getElementById("typeSpace");
+var checkbox = document.getElementById("checkbox");
+
+//runs game when start button clicked and resets game when button clicked again
 function startGame() {
     if(timerVis) {
         timer.style.display = "none";
@@ -9,10 +21,9 @@ function startGame() {
     else {
         timer.style.display = "block";
         timerVis = true;
-        var text =  getRandomText();
-        var endNum = returnSnippet(50,text);
-        textDisplay.innerText = text.substring(0,endNum);
-        console.log(endNum);
+        text =  getRandomText();
+        returnSnippet(text);
+        // textDisplay.innerText = returnSnippet(text);
         
         var itv1 = setInterval(function countDown() {
             startTime--;
@@ -21,45 +32,91 @@ function startGame() {
             if(startTime <= 0 || startTime < 1)
             {
                 clearInterval(itv1);
+                textDisplay.innerText = "TIMES UP!";
+                inputText.style.display = "none";
             }
         }, 1000);
     }
 }
 
-
-//returns snippet of text that neds whole and kepeps a minimum to keep trakc of where it is
-
-function returnSnippet(i,text) {
-    var endNum = i+1;
-    for(i;i<100;i++) {
-        if(text.substr(i,i++) == " ")
+//iterates through each input and displayed character every time the user types
+//adds green or red to displayed text as well as keeps score
+var typed = false;
+var x=0;
+inputText.addEventListener("input", () => {
+    var disText = textDisplay.querySelectorAll('span');
+    var inputCharacters = inputText.value.split('');
+    disText.forEach((disCharacter, pos) => {
+        var inputChar = inputCharacters[pos];
+        if(inputChar == null)
         {
-            return endNum;
+            disCharacter.classList.remove("correct");
+            disCharacter.classList.remove("incorrect");
+            typed = false;
         }
-        else
+        else if(inputChar == disCharacter.innerText)
         {
-            console.log(endNum);
-            endNum++;
+            disCharacter.classList.add("correct");
+            disCharacter.classList.remove("incorrect");
+            score++;
+            console.log(score);
+            typed = true;
         }
+        else 
+        {
+            disCharacter.classList.remove("correct");
+            disCharacter.classList.add("incorrect");
+            score--;
+            typed = true;
+            console.log(score);
+        }
+        docScore.innerText = "SCORE " + score;
+    })
+    if (typed) 
+    {
+        returnSnippet(text);
+        console.log(score);
     }
 
-    // var subString = "";
-    // var space = true;
-    // subString = text.substr(i,i+=50);
-    //     while(space){
-    //         if(text.substr(i+=49,i+=50) != " ")
-    //         {
-    //             subString += text.substr(i+49,i+50);
-    //             i++;
-    //         }
-    //         else
-    //         {
-    //             i+=49;
-    //             space = false;
-    //             return subString;
-    //         }
-    //     }
+    if(text.split(' ').slice(x,x++).join(' ') === inputText.value.split(' ').slice(x,x++).join(' '))
+    {
+        wordsTyped++;
+        x++;
+        console.log(x + "Word was typed " + inputText.value.split(' ').slice(x,x++).join(' ') + " === " + text.split(' ').slice(x,x++).join(' '));
     }
+    charTyped++;
+
+    console.log("changed");
+})
+
+
+//returns snippet of text from whole text and keeps a minimum number to keep track of where text it is
+var i=0;
+function returnSnippet(text) {
+    var newText = text.split(' ').slice(i, i+=20).join(' ');
+    i+=20;
+    textDisplay.innerText = null;
+    inputText.value = null;
+    newText.split('').forEach(character => {
+        const newSpan = document.createElement('span');
+        newSpan.innerText = character;
+        textDisplay.appendChild(newSpan);
+    })
+}
+
+var light=true;
+function lightMode() {
+    if(light)
+    {
+        opaqueBackground.style.backgroundColor =  "rgb(0 0 0 / 33%)";
+        light = false;
+    }
+    else 
+    {
+        opaqueBackground.style.backgroundColor = "rgba(255, 255, 255, 0.358)";
+        light = true;
+    }
+}
 
 var easyMode = document.getElementsByClassName("difficultyChoice")[0];
 var medMode = document.getElementsByClassName("difficultyChoice")[1];
@@ -82,10 +139,12 @@ var dif = "hard";
 // }
 
 
+//keeps track of diffcutly selected
 function chooseDifEasy() {
     dif ="easy";
     background.style.background = "#4ec864";
     gameChoiceBtn.style.background = "#4ec864";
+    opaqueBackground.style.backgroundColor =  "rgb(0 0 0 / 33%)";
     // gameChoiceBtn.addEventListener("mouseover", changeBtnColor);
 }
 function chooseDifMed() {
@@ -107,7 +166,7 @@ var floatItem = document.getElementsByClassName("word");
 const wordArr1 = ["String", "Listen", "Keyboard", "Cloud", "Piano", "Headset", "Note", "Sound", "Volume", "Lyric"];
 const wordArr2 = ["Apple", "Banana", "Carrot", "Diamond", "Earth", "Fire", "Gorilla", "Helmet", "Iceberg", "Jackal"];
 
-
+//keeps track of game mode selected
 function gameModeSelect(){
     if(isMusic) {
         isMusic = false;
@@ -136,9 +195,8 @@ function gameModeSelect(){
     
 }
 
-var textDisplay = document.getElementById("genText");
-var inputText = document.getElementById("typeBox");
 
+//gets randome Text based on game modes from the arrays below.
 function getRandomText() {
     if(dif=="easy" && isMusic) {
         return easySongs[randomNum(0,2)];
@@ -161,8 +219,7 @@ function getRandomText() {
         
     // }
 
-}
-
+}//returns ranfom number between a range
 function randomNum(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -192,119 +249,119 @@ You can call me queen bee \
 And baby, I'll rule (I'll rule, I'll rule, I'll rule) \
 Let me live that fantasy",
 
-"Shine bright like a diamond\
-Shine bright like a diamond\
-Find light in the beautiful sea\
-I choose to be happy\
-You and I, you and I\
-We're like diamonds in the sky\
-You're a shooting star I see\
-A vision of ecstasy\
-When you hold me, I'm alive\
-We're like diamonds in the sky\
-I knew that we'd become one right away\
-Oh, right away\
-At first sight I felt the energy of sun rays\
-I saw the life inside your eyes\
-So shine bright, tonight, you and I\
-We're beautiful like diamonds in the sky\
-Eye to eye, so alive\
+"Shine bright like a diamond \
+Shine bright like a diamond \
+Find light in the beautiful sea \
+I choose to be happy \
+You and I, you and I \
+We're like diamonds in the sky \
+You're a shooting star I see \
+A vision of ecstasy \
+When you hold me, I'm alive \
+We're like diamonds in the sky \
+I knew that we'd become one right away \
+Oh, right away \
+At first sight I felt the energy of sun rays \
+I saw the life inside your eyes \
+So shine bright, tonight, you and I \
+We're beautiful like diamonds in the sky \
+Eye to eye, so alive \
 We're beautiful like diamonds in the sky",
 
-"Right, my yiy just changed\
-You just buzzed the front gate\
-I thank God you came\
-How many more days could I wait?\
-I made plans with you\
-And I won't let em fall through\
-I, I, I, I, I\
-I think I'd lie for you\
-I think I'd die for you\
-Jodeci Cry For You\
-Do things when you want me to\
-Like controlla, controlla\
-Yeah, like controlla, controlla\
-Yeah, okay, you like it\
-When I get, aggressive, tell you to\
-Go slower, go faster\
-Like controlla, controlla\
+"Right, my yiy just changed \
+You just buzzed the front gate \
+I thank God you came \
+How many more days could I wait? \
+I made plans with you \
+And I won't let em fall through \
+I, I, I, I, I \
+I think I'd lie for you \
+I think I'd die for you \
+Jodeci Cry For You \
+Do things when you want me to \
+Like controlla, controlla \
+Yeah, like controlla, controlla \
+Yeah, okay, you like it \
+When I get, aggressive, tell you to \
+Go slower, go faster \
+Like controlla, controlla \
 Yeah, like controlla, controlla"
 
 ];
 
-const medSongs = ["Sometimes, all I think about is you\
-Late nights in the middle of June\
-Heat waves been fakin’ me out\
-Can’t make you happier now\
-Sometimes, all I think about is you\
-Late nights in the middle of June\
-Heat waves been fakin’ me out\
-Can’t make you happier now\
-Usually I put somethin’ on TV\
-So we never think about you and me\
-But today I see our reflections clearly\
-In Hollywood, layin’ on the screen\
-You just need a better life than this\
-You need somethin’ I can never give\
-Fake water all across the road\
-It’s gone now, the night has come, but\
-Sometimes all I think about is you\
-Late nights in the middle of June\
-Heat waves been fakin’ me out\
+const medSongs = ["Sometimes, all I think about is you \
+Late nights in the middle of June \
+Heat waves been fakin’ me out \
+Can’t make you happier now \
+Sometimes, all I think about is you \
+Late nights in the middle of June \
+Heat waves been fakin’ me out \
+Can’t make you happier now \
+Usually I put somethin’ on TV \
+So we never think about you and me \
+But today I see our reflections clearly \
+In Hollywood, layin’ on the screen \
+You just need a better life than this \
+You need somethin’ I can never give \
+Fake water all across the road \
+It’s gone now, the night has come, but \
+Sometimes all I think about is you \
+Late nights in the middle of June \
+Heat waves been fakin’ me out \
 Can’t make you happier now",
 
-"Turn up the radio\
-Blast your stereo\
-Right now\
-This joint is fizzlin\
-It's sizzlin\
-Right\
-Yo check this out right here\
-Dude wanna hate on us (dude)\
-Dude need to ease on up (dude)\
-Dude wanna act on up\
-But dude get shut like flava shut (down)\
-Chick say she ain't down\
-But chick backstage when we in town (ha)\
-She like man on drum (boom)\
-She wanna hit n' run (err)\
-Yeah, that's the speed\
-That's who we do\
-That's who we be\
-B-L-A-C-K E-Y-E-D P to the E\
-Then the A to the S\
-When we play you shake your ass\
-Shake it, shake it, shake it girl\
-Make sure you don't break it, girl\
+"Turn up the radio \
+Blast your stereo \
+Right now \
+This joint is fizzlin \
+It's sizzlin \
+Right \
+Yo check this out right here \
+Dude wanna hate on us (dude) \
+Dude need to ease on up (dude) \
+Dude wanna act on up \
+But dude get shut like flava shut (down) \
+Chick say she ain't down \
+But chick backstage when we in town (ha) \
+She like man on drum (boom) \
+She wanna hit n' run (err) \
+Yeah, that's the speed \
+That's who we do \
+That's who we be \
+B-L-A-C-K E-Y-E-D P to the E \
+Then the A to the S \
+When we play you shake your ass \
+Shake it, shake it, shake it girl \
+Make sure you don't break it, girl \
 Cause we gonna",
 
-"I love the way you walk into the room\
-Body shining lightin' up the place\
-And when you talk, everybody stop\
-'Cause they know you know just what you sayin\
-The way that you protect your friends\
-Baby I respect you for that\
-And when you grow you'll take everyone you love along\
-I love that stuff\
-Don't fly me away\
-Don't need to buy a diamond key to unlock my heart\
-You shelter my soul, you're my fire when I'm cold\
-I want you to know\
-You had me at hello\
-Hello, hello\
-'Cause you had me at hello\
-Hello, hello\
-'Cause it was many years ago\
-Baby when you stole my cool\
-'Cause you had me at hello\
-Hello, hello\
-I get so excited when you travel with me\
-Baby while I'm on my grind\
-And never will I ever let my hustle\
-Come between me and my family time and\
-You keep me humble, I like this type\
-'Cause you know there's more to life\
-And if I need ya, you will be here\
+"I love the way you walk into the room \
+Body shining lightin' up the place \
+And when you talk, everybody stop \
+'Cause they know you know just what you sayin \
+The way that you protect your friends \
+Baby I respect you for that \
+And when you grow you'll take everyone you love along \
+I love that stuff \
+Don't fly me away \
+Don't need to buy a diamond key to unlock my heart \
+You shelter my soul, you're my fire when I'm cold \
+I want you to know \
+You had me at hello \
+Hello, hello \
+'Cause you had me at hello \
+Hello, hello \
+'Cause it was many years ago \
+Baby when you stole my cool \
+'Cause you had me at hello \
+Hello, hello \
+I get so excited when you travel with me \
+Baby while I'm on my grind \
+And never will I ever let my hustle \
+Come between me and my family time and \
+You keep me humble, I like this type \
+'Cause you know there's more to life \
+And if I need ya, you will be here \
 You will make the sacrifice"
 ];
 

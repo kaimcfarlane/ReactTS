@@ -148,8 +148,8 @@
                             
                 <h1 id="helpTitle" onclick="revealHelpText()">HELP</h1>
             </header>
-            <text id="helpText">Pick whether you want to type a story or a song, then your difficulty. Hit START and type away, you have 30 seconds to write as fast as possible</text>
-            <h2 id="time">TIME: 30</h2>
+            <text id="helpText">Pick whether you want to type a story or a song, then your difficulty. Hit START and type away, you have 60 seconds to type as fast as possible</text>
+            <h2 id="time">TIME: 60</h2>
 
             <div id="clickArea">
 
@@ -161,14 +161,19 @@
         <div id="gameContent">
             <header id="gameContentHeader">
               <h2 class="scoreCounter" id="LPM">LPM</h2>
-              <h2 class="scoreCounter" id="WPM">WPM</h2>
               <h2 class="scoreCounter" id="Score">SCORE</h2>
+              <h2 class="scoreCounter" id="WPM">WPM</h2>
             </header>
             <section id="typeSpace">
                 <p id="genText">
                     Welcome
                 </p>
                 <textarea id="typeBox" placeholder="Start Typing"></textarea>
+                <form action="">
+                    <label class="">
+                      <input type="checkbox" name="checkbox" id="checkbox" onclick="lightMode()"/>
+                      DARK/LIGHT
+                    </label>
             </section>
         </div>
     </div>

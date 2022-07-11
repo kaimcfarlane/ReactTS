@@ -540,7 +540,7 @@ li {
 #genText {
   padding-bottom: 5px;
   font-size: 21px;
-  margin-right: 425px;
+  /* margin-right: 425px; */
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   /* padding: 20px; */
 }
@@ -568,4 +568,13 @@ li {
 
 #typeBox:focus {
   border-color: #28313b;
+}
+
+.correct {
+  color: #02c66f;
+}
+
+.incorrect {
+  color: #e74c3c;
+  text-decoration: underline;
 }
