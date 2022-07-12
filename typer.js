@@ -27,6 +27,7 @@ function startGame() {
         }
         i=0;
         score = 0;
+        docScore.innerText = "SCORE";
         textDisplay.innerText = "";
         inputText.style.display = "inline-block";
         LPM.innerText = "LPM";
@@ -273,17 +274,15 @@ function getRandomText() {
     else if(dif=="hard" && isMusic) {
         return hardSongs[randomNum(0,2)];
     }
-
-
-    // else if(dif=="easy" && !isMusic) {
-
-    // }
-    // else if(dif=="med" && !isMusic) {
-        
-    // }
-    // else if(dif=="hard" && !isMusic) {
-        
-    // }
+    else if(dif=="easy" && !isMusic) {
+        return easyWords[randomNum(0,2)];
+    }
+    else if(dif=="med" && !isMusic) {
+        return medWords[randomNum(0,2)];
+    }
+    else if(dif=="hard" && !isMusic) {
+        return hardWords[randomNum(0,2)];
+    }
 
 }//returns ranfom number between a range
 function randomNum(min, max) {
@@ -431,19 +430,19 @@ And if I need ya, you will be here. \
 You will make the sacrifice."
 ];
 
-const hardSongs = ["Sí, sabes que ya llevo un rato mirándote. \
+const hardSongs = ["Si, sabes que ya llevo un rato mirandote. \
 Tengo que bailar contigo hoy. \
-Vi que tu mirada ya estaba llamándome. \
-Muéstrame el camino que yo voy. \
-Oh, tú, tú eres el imán y yo soy el metal. \
+Vi que tu mirada ya estaba llamandome. \
+Muestrame el camino que yo voy. \
+Oh, tu, tu eres el imán y yo soy el metal. \
 Me voy acercando y voy armando el plan \
 Solo con pensarlo se acelera el pulso. \
-Ya, ya me estás gustando más de lo normal \
-Todos mis sentidos van pidiendo más. \
-Esto hay que tomarlo sin ningún apuro \
+Ya, ya me estas gustando más de lo normal \
+Todos mis sentidos van pidiendo mas. \
+Esto hay que tomarlo sin ningun apuro \
 Despacito. \
 Quiero respirar tu cuello despacito. \
-Deja que te diga cosas al oído. \
+Deja que te diga cosas al oido. \
 Para que te acuerdes si no estás conmigo. \
 Despacito.", 
 
@@ -466,7 +465,7 @@ Now, who thinks their arms are long enough to slap box, slap box? \
 Let me show you maintainin' this shit ain't that hard, that hard. \
 Everybody want the key and the secret to rap immortality like Ι have got.",
 
-"Babylon position the queen and set the pawn.   \
+"Babylon position the queen and set the pawn. \
 And start transform like Deceptacon. \
 Anytime delegates have a discrepence. \
 Well a bare tension with some long weapons. \
@@ -486,9 +485,181 @@ Exodus with no question, \
 Better put on your khaki uniform."
 ]
 
-const easyWords = [""];
-const medWords = [""];
-const hardWords = [""];
+const easyWords = ["The sun finally set. The Goblin Deep \
+became darker. The friends moved forward. \
+They passed cautiously through the \
+shattered doorway. It led into a great hall. \
+Elf, sprite, and humans moved in silence, \
+keeping near the wall. \
+The cold light of the moon shone through \
+the towering, stone-framed windows to \
+their right. It glittered off the dust on \
+the floor. They darted along in silence, \
+moving past gaping doors and yawning \
+windows. Vortagellan knew that the \
+covering shadows could also hide a wellplaced guard. \
+A portal to the Otherworld gaped open \
+below them. It shone like a jewel. \
+Several druids stood before it. Their \
+staffs were joined to the shimmering \
+disc by bright, blue bands of lights. \
+Druid magic cracked and fizzed noisily. \
+The druids were in a deep trance. They \
+chanted spells to keep the portal open. \
+Fairy folk—sprites, fauns, and goblins— \
+streamed in and out of the doorway to the \
+Otherworld. Lillian gasped in surprise. All \
+of these little creatures were carrying full \
+sacks on their backs.",
+"One day when the mother goat was out, \
+her kids heard a gruff voice outside. \
+“Open the door,” said the gruff voice. \
+“Your mother is home with food.” \
+The little kids were hungry, but they \
+remembered their mother’s warning. \
+“You are not our mother,” they \
+bleated. “Your voice is too gruff!” \
+The wolf went away and chewed \
+on a lump of chalk to make his \
+voice softer. Then he returned \
+to the goats’ cottage. \
+The wolf went away and rubbed chalk on \
+his feet. He returned to the cottage a third \
+time. \
+“My little treasures, it’s your mother with \
+yummy treats.” \
+The kids saw the white feet, heard the soft \
+voice, and flung the door open. The wolf \
+chased the terrified kids, catching them \
+one by one and putting them in a sack. \
+When he caught the sixth kid, he threw the \
+sack over his shoulder and made for his lair. \
+The seventh, smallest kid remained hidden. \
+When the mother goat returned, she found \
+the frightened kid and left at once to find \
+the others.",
+"Under a spreading chestnut-tree \
+The village smithy stands \
+The smith, a mighty man is he, \
+With large and sinewy hands; \
+And the muscles of his brawny arms \
+Are strong as iron bands. \
+His hair is crisp, and black, and long, \
+His face is like the tan; \
+His brow is wet with honest sweat, \
+He earns whate’er he can, \
+And looks the whole world in the face, \
+For he owes not any man. \
+Week in, week out, from morn till night, \
+You can hear his bellows blow; \
+You can hear him swing his heavy sledge, \
+With measured beat and slow, \
+Like a sexton ringing the village bell, \
+When the evening sun is low. \
+And children coming home from school \
+Look in at the open door; \
+They love to see the flaming forge, \
+And hear the bellows roar, \
+And catch the burning sparks that fly \
+Like chaff from a threshing-floor."];
+const medWords = ["A rat is a rodent, the most common mammal in the world. \
+Rattus norvegicus is one of \
+the approximately four hundred different kinds of rodents, \
+and it is known by many names, \
+each of which describes a trait or a perceived trait or sometimes a habitat: \
+the earth rat, the roving rat, the barn rat, the field rat, the migratory rat, \
+the house rat, the sewer rat, the \
+water rat, the wharf rat, the alley rat, the gray rat, the brown rat, \
+and the common rat. The average brown rat is large and stocky; it grows to be approximately \
+sixteen inches long from its nose to its tail—the size of a large adult human male’s \
+foot—and weighs about a pound, though brown rats have been measured by scientists and exterminators at twenty \
+inches and up to two pounds. The brown rat is sometimes confused with the black rat, or \
+Rattus rattus, which is smaller and once inhabited New York City and all of the cities of \
+America but, since Rattus norvegicus pushed it out, is now relegated to a minor role.",
+"At twelve I was an avid consumer of comic books—Supergirl being my favorite. I \
+spent my allowance of a quarter a day on two twelve-cent comic books or a double issue \
+for twenty-five. I had a stack of Legion of Super Heroes and Supergirl comic books in \
+my bedroom closet that was as tall as I. I had a recurring dream in those days: that I had \
+long blond hair and could fly. In my dream I climbed the stairs to the top of our apartment \
+building as myself, but as I went up each flight, changes would be taking place. Step by \
+step I would fill out: my legs would grow long, my arms harden into steel, and my hair \
+would magically go straight and turn a golden color. . . . Supergirl had to be aerodynamic. \
+Sleek and hard as a supersonic missile. Once on the roof, my parents safely asleep in their \
+beds, I would get on tip-toe, arms outstretched in the position for flight and jump out my \
+fifty-story-high window into the black lake of the sky. From up there, over the rooftops, I \
+could see everything, even beyond the few blocks of our barrio;1 with my X-ray vision I \
+could look inside the homes of people who interested me. Once I saw our landlord, whom \
+I knew my parents feared, sitting in a treasure-room dressed in an ermine coat and a large \
+gold crown.",
+"There were no milk deliveries to residences on Saturdays, just to commercial businesses, \
+and there were relatively few of these in the Borough. My father would finish his deliveries \
+early, then swing by the house for Bobby Marconi and me so we could “surf the truck.” The \
+empty metal milk crates were by then stacked and roped off against the side panels to prevent \
+them from sliding and bouncing around when he turned corners. His careful stacking left \
+most of the back empty, and Bobby and I would stand in the space created, our feet planted \
+firmly on the ribbed floor, and pretend to surf, our arms out at our sides to keep our balance \
+as the truck rattled along the wide Borough streets. I always surfed in the forward position, \
+an advantage because you could see the turns coming. Bobby, as athletic in the milk truck \
+as he was elsewhere, surfed more or less blind behind me."]; 
+const hardWords = ["To Terry Fox, the one-legged runner whose \
+life was the antithesis of self-aggrandizement, the thought he would be the first \
+Canadian depicted on a circulating coin \
+would be considered loony. \
+Fox asked every Canadian for a dollar \
+toward cancer research when he dipped his \
+prosthesis into the frigid waters of St. John’s \
+harbour on April 12, 1980, and began his \
+cross-Canada marathon. \
+In 2005, that small change has added up to \
+more than $360 million through the annual \
+Terry Fox Marathon of Hope across Canada \
+and worldwide. \
+To mark the 25th anniversary of the run, the \
+Royal Canadian Mint unveiled a one-dollar \
+commemorative circulation coin Monday on \
+the campus of Simon Fraser University. Fox \
+was an undergraduate student and basketball \
+player at SFU when a malignant tumour was \
+discovered in his right leg in 1977. It resulted \
+in amputation. A bronze statue of Fox, one of \
+many such tributes across Canada, looks \
+over the academic quadrangle of the \
+university, just a short stroll from the theatre \
+where Monday’s unveiling was held. ",
+"Many Canadians are aware that problems \
+with the nation’s health care system have \
+resulted in a lack of hospital beds and \
+medical equipment, overcrowded emergency \
+rooms, long surgical and diagnostic waiting \
+lists, and not enough long term care homes. \
+But with 3.6 million Canadians unable to find \
+a family doctor, a particularly insidious1 and \
+growing problem is making itself evident. \
+The family doctor is the cornerstone of the \
+nation’s health care system. The vast majority \
+of Canadians have said many times over that \
+they want their family doctor to be their first \
+point of contact in the health care system. \
+Nevertheless, family doctors are becoming a \
+dying breed. With diminishing access to that \
+first point of contact, many Canadians in \
+need of medical help are finding it \
+increasingly difficult to receive timely and \
+appropriate care. In my province of British \
+Columbia, the conservative estimate is that \
+200,000 British Columbians looking for a \
+family doctor cannot find one.",
+"But the ecstatic, eleven-year-old quiver in her voice, and the way she pirouetted on her bare toes as he \
+led the horse out of the buggy shafts, made him feel that perhaps in picking up the poster he had been \
+unworthy of his own seventeen years; so with an offhand shrug he drawled, “Everybody said it \
+wouldn’t amount to much. A few ponies and an elephant or two—but what’s an elephant?” \
+ 3 She wheeled from him, resenting his attempt to scoff away such wonders. The bit of poster had spun a \
+new world before her, excited her, given wild, soaring impetus to her imagination; and now, without in \
+the least understanding herself, she wanted the excitement and the soaring, even though it might stab \
+and rack her. \
+ 4 It was supper-time, her father just in from the field and turning the horses loose at the water-trough, so \
+off she sped to greet him, her bare legs flashing, her throat too tight to cry out, passionate to \
+communicate her excitement, to find response. "];
 
 
 
