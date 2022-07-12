@@ -13,6 +13,7 @@ var opaqueBackground = document.getElementById("typeSpace");
 var checkbox = document.getElementById("checkbox");
 var LPM = document.getElementById("LPM");
 var WPM = document.getElementById("WPM");
+var chart = document.getElementById("myChart");
 
 //runs game when start button clicked and resets game when button clicked again
 function startGame() {
@@ -50,6 +51,7 @@ function startGame() {
                 LPM.innerText = "LPM " + charTyped;
                 WPM.innerText = "WPM " + wordsTyped;
                 startButton.innerHTML = "PLAY AGAIN";
+                chart.style.opacity = "100%";
             }
         }, 1000);
     }
@@ -76,6 +78,7 @@ function startGame() {
                 LPM.innerText = "LPM " + charTyped;
                 WPM.innerText = "WPM " + wordsTyped;
                 startButton.innerHTML = "PLAY AGAIN";
+                chart.style.opacity = "100%";
             }
         }, 1000);
     }
