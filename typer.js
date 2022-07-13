@@ -437,7 +437,7 @@ const hardSongs = ["Si, sabes que ya llevo un rato mirandote. \
 Tengo que bailar contigo hoy. \
 Vi que tu mirada ya estaba llamandome. \
 Muestrame el camino que yo voy. \
-Oh, tu, tu eres el imán y yo soy el metal. \
+Oh, tu, tu eres el iman y yo soy el metal. \
 Me voy acercando y voy armando el plan \
 Solo con pensarlo se acelera el pulso. \
 Ya, ya me estas gustando más de lo normal \
