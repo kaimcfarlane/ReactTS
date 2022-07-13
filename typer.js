@@ -14,6 +14,7 @@ var checkbox = document.getElementById("checkbox");
 var LPM = document.getElementById("LPM");
 var WPM = document.getElementById("WPM");
 var chart = document.getElementById("myChart");
+var gameContent = document.getElementById("gameContent");
 
 //runs game when start button clicked and resets game when button clicked again
 function startGame() {
@@ -51,7 +52,8 @@ function startGame() {
                 LPM.innerText = "LPM " + charTyped;
                 WPM.innerText = "WPM " + wordsTyped;
                 startButton.innerHTML = "PLAY AGAIN";
-                chart.style.opacity = "100%";
+                canvasDiv.style.display = "block";
+                gameContent.style.marginTop = "65px";
             }
         }, 1000);
     }
@@ -78,7 +80,8 @@ function startGame() {
                 LPM.innerText = "LPM " + charTyped;
                 WPM.innerText = "WPM " + wordsTyped;
                 startButton.innerHTML = "PLAY AGAIN";
-                chart.style.opacity = "100%";
+                gameContent.style.marginTop = "65px";
+                canvasDiv.style.display = "block";
             }
         }, 1000);
     }

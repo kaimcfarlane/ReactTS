@@ -70,7 +70,7 @@ const labels = [
 var data = {
         labels: labels,
         datasets: [{
-          label: 'TYPER SPEED',
+          label: 'TYPER SPEED (WPM)  ',
           backgroundColor: ['rgba(255, 99, 132, 0.2)',
           'rgba(255, 205, 86, 0.2)',
           'rgba(75, 192, 192, 0.2)',
@@ -89,17 +89,19 @@ var data = {
           type: "line",
           label: 'User Score',
           data: [],
-          backgroundColor : ["#42f590"],
+          backgroundColor : ["#42f590"], 
           borderColor: ["#42f590"],
-          borderWidth: 1
+          borderWidth: 4
         }]
       };
 
   var config = {
     type: 'bar',
     data: data,
-    options: {}
-  };
+    options: {
+        backgroundColor: "blue"
+    }
+};
 
   var myChart = new Chart(
     document.getElementById('myChart'),

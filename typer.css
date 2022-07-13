@@ -597,5 +597,12 @@ li {
   border-radius: 4px;
   border-style: solid;
   position: relative;
-  opacity: 0%;
+}
+
+#canvasDiv {
+  max-width: 50%;
+  min-width: 745px;
+  margin: auto;
+  overflow: hidden;
+  display: none;
 }
