@@ -92,7 +92,8 @@ var data = {
           backgroundColor : ["#42f590"], 
           borderColor: ["#42f590"],
           borderWidth: 4
-        }]
+        },
+    ]
       };
 
   var config = {
@@ -110,9 +111,9 @@ var data = {
 
   var itv1 = setInterval(updateChart,100)
   
-
+var scoreProcessed = true;
 function updateChart() {
-    if(startTime==0) {
+    if(startTime==0 && !scoreProcessed) {
         // myChart.destroy();
         //     myChart = new Chart(
         //     document.getElementById("myChart"),
@@ -135,7 +136,20 @@ function updateChart() {
         // myChart.config.data.datasets[1].data.push(wordsTyped);
         // myChart.update();
 
-        clearInterval(itv1);
+        scoreProcessed = true;
+
+        // clearInterval(itv1);
+        // itv1 = setInterval(updateChart,100)
+    }
+    else if(startTime == 60 && scoreProcessed)
+    {
+        scoreProcessed = false;
+        myChart.config.data.datasets[1].data.pop();
+        myChart.config.data.datasets[1].data.pop();
+        myChart.config.data.datasets[1].data.pop();
+        myChart.config.data.datasets[1].data.pop();
+        myChart.config.data.datasets[1].data.pop();
+        myChart.update();
     }
 
     // myChart.config.data.datasets[1].data.push(typedWords);

@@ -23,6 +23,7 @@ function startGame() {
         timerVis = false;
     }
     if(startTime<=0){
+        canvasDiv.style.display = "none";
         var helpText = document.getElementById("helpText");
         if(helpText.style.display == "block") {
             helpText.style.display = "none";
@@ -519,12 +520,12 @@ of these little creatures were carrying full \
 sacks on their backs.",
 "One day when the mother goat was out, \
 her kids heard a gruff voice outside. \
-“Open the door,” said the gruff voice. \
-“Your mother is home with food.” \
+Open the door, said the gruff voice. \
+Your mother is home with food. \
 The little kids were hungry, but they \
 remembered their mother’s warning. \
-“You are not our mother,” they \
-bleated. “Your voice is too gruff!” \
+You are not our mother, they \
+bleated. Your voice is too gruff! \
 The wolf went away and chewed \
 on a lump of chalk to make his \
 voice softer. Then he returned \
@@ -532,8 +533,8 @@ to the goats’ cottage. \
 The wolf went away and rubbed chalk on \
 his feet. He returned to the cottage a third \
 time. \
-“My little treasures, it’s your mother with \
-yummy treats.” \
+My little treasures, it’s your mother with \
+yummy treats. \
 The kids saw the white feet, heard the soft \
 voice, and flung the door open. The wolf \
 chased the terrified kids, catching them \
