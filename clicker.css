@@ -2,6 +2,39 @@ body {
   background-color: white;
 }
 
+.area {
+  background: #18b2ad;
+  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+  width: 100%;
+  height: 100vh;
+}
+
+.circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  /* background: rgba(255, 255, 255, 0.2); */
+  background: rgb(248 248 248 / 53%);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 50%;
+  }
+
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 100%;
+  }
+}
+
 #game {
   position: relative;
   /* padding-top: 10px;
@@ -21,6 +54,42 @@ body {
 
 #startButton {
   cursor: pointer;
+}
+
+#startButton {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* background-color: transparent; */
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  /* margin: 20px; */
+  padding: 5.2px 25.8px;
+  text-decoration: none;
+  /* text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif; */
+  font-weight: 700;
+}
+#startButton:hover,
+#startButton:focus {
+  color: #fff;
+  outline: 0;
+}
+
+#startButton {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+#startButton:hover {
+  box-shadow: 0 0 40px 40px #e74c3c inset;
 }
 
 #clickArea {
@@ -61,3 +130,62 @@ body {
 /* #helpText .hover {
     color: grey;
   } */
+
+#hitBox {
+  /* left: 50%; */
+  /* margin: auto;
+  text-align: center; */
+  /* width: 500px;
+  height: 500px; */
+  /* border: black;
+  border-width: 3px;
+  border-style: solid;
+  position: relative;
+  margin-top: 100px;
+  padding: 200px;
+  max-width: 10%;
+  min-width: 10%; */
+  margin: auto;
+  margin-top: 100px;
+  position: relative;
+  background-color: #ff8181;
+  display: none;
+  text-decoration: none;
+  color: #fff;
+  width: 141px;
+  padding: 200px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  vertical-align: middle;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #bd6565;
+  transition: 0.1s;
+  font-size: 100px;
+}
+
+#hitBox:active {
+  -ms-transform: translateY(2px);
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  border-bottom: none;
+}
+
+#hitBox:focus {
+  background-color: #ffe733;
+}
+
+#hitBoxText {
+  margin-left: -60px;
+}
+
+#check {
+  width: 42px;
+  height: 42px;
+  display: none;
+  margin-left: 19px;
+  position: relative;
+}
