@@ -2,6 +2,35 @@ body {
   background-color: white;
 }
 
+#mainTitle {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 32px;
+}
+
+#gameChoiceBtn {
+  /* padding-top: 20px; */
+  color: aliceblue;
+  font-size: 20px;
+  background-color: black;
+  font-family: "Exo", sans-serif;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 4px;
+  padding: 3px;
+  position: relative;
+  /* pointer-events: none; */
+}
+
+.dropDownItems {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 152.3px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
 .area {
   background: #18b2ad;
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
