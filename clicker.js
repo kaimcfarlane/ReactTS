@@ -1,5 +1,4 @@
-var timerVis = false
-var timer = document.getElementById("time");
+
 var hitBox = document.getElementById("hitBox");
 var hitBoxText = document.getElementById("hitBoxText")
 var isClicked = false;
@@ -9,6 +8,7 @@ var end = false;
 var canvasDiv = document.getElementById("canvasDiv");
 var chartDisplayed = false;
 var scoreText = document.getElementById("scoreText");
+var delay = 0;
 // var check = document.getElementById("check");
 function startGame() {
     if(end) {
@@ -52,6 +52,7 @@ function startGame() {
                         canvasDiv.style.display = "block";
                         chartDisplayed = true;
                         end = true;
+                        isClicked = false;
                         startButton.innerHTML = "PLAY AGAIN";
                     }, 800)
                 },1500)
@@ -65,7 +66,7 @@ function startGame() {
     else {
         hitBox.style.display = "block";
         
-        var delay = randomPos(2,7) * 1000;
+        delay = randomPos(2,7) * 1000;
         setTimeout(function appear(){
             hitBox.style.backgroundColor = "rgb(93 240 101)";
             hitBox.style.borderBottom = "solid 3px #449449";
