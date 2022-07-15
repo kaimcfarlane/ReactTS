@@ -2,6 +2,7 @@ var timerVis = false
 var timer = document.getElementById("time");
 let startTime = 30;
 var startButton = document.getElementById("startButton");
+var canvasDiv = document.getElementById("canvasDiv");
 function startGame() {
     if(timerVis) {
         timer.style.display = "none";
@@ -10,6 +11,7 @@ function startGame() {
     }
     if(startTime<=0) {
         
+        canvasDiv.style.display = "none";
         var helpText = document.getElementById("helpText");
         if(helpText.style.display == "block") {
             helpText.style.display = "none";
@@ -34,6 +36,8 @@ function startGame() {
                 clearInterval(itv1);
                 document.getElementsByClassName("dot")[0].style.display = "none";
                 startButton.innerHTML = "PLAY AGAIN";
+                canvasDiv.style.display = "block";
+                timer.innerText = "Times Up!";
             }
         }, 1000);
         var space = 2500;
@@ -82,6 +86,8 @@ function startGame() {
                 clearInterval(itv1);
                 document.getElementsByClassName("dot")[0].style.display = "none";
                 startButton.innerHTML = "PLAY AGAIN";
+                canvasDiv.style.display = "block";
+                timer.innerText = "Times Up!";
             }
 
         }, 1000);

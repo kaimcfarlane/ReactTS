@@ -47,10 +47,7 @@
                 <h1 id="helpTitle" onclick="revealHelpText()">HELP</h1>
             </header>
             <text id="helpText">Click the green buttons as quick as possible, however don't click the red ones, they lose points! You have until Times Up!
-                <br> 3-4 POINTS = Slow
-                <br> 5-8 POINTS = Moderate
-                <br> 9-11 Points = Quick
-                <br> 12+ = Swift
+
             </text>
             <h2 id="time">TIME: 30</h2>
             
@@ -63,10 +60,16 @@
                 <li></li> -->
             </ul>
 
-            <div id="clickArea">
-
-            </div>
+            
+            
         </section>
+
+        <div id="canvasDiv">
+            <canvas id="myChart"></canvas>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script defer src="chartDot.js"></script>        
+        </div >   
     </div>
 </body>
 </html>
