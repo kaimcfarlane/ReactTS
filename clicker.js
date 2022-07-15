@@ -1,23 +1,73 @@
 var timerVis = false
 var timer = document.getElementById("time");
-let startTime = 30;
 var hitBox = document.getElementById("hitBox");
 var hitBoxText = document.getElementById("hitBoxText")
 var isClicked = false;
 var appeared = false;
 var timeElap = 0;
+var end = false;
+var canvasDiv = document.getElementById("canvasDiv");
+var chartDisplayed = false;
+var scoreText = document.getElementById("scoreText");
 // var check = document.getElementById("check");
 function startGame() {
-    if(timerVis) {
-        // timer.style.display = "none";
-        // timerVis = false;
+    if(end) {
+        
+        canvasDiv.style.display = "none";
+        var helpText = document.getElementById("helpText");
+        if(helpText.style.display == "block") {
+            helpText.style.display = "none";
+        }
+        hitBoxText.innerText = "Click!";
+        hitBoxText.style.marginLeft = "-47px";
+        // hitBoxText.innerText = "Click!";
+        hitBox.style.opacity = "100%";
+        hitBox.style.backgroundColor = "#ff8181";
+        timeElap = 0;
+        scoreText.innerText = "Score";
+        appeared = false;
+
+        delay = randomPos(2,7) * 1000;
+        setTimeout(function appear(){
+            hitBox.style.backgroundColor = "rgb(93 240 101)";
+            hitBox.style.borderBottom = "solid 3px #449449";
+            hitBoxText.innerText = "Click!";
+            hitBoxText.style.marginLeft = "-47px";
+            // hitBoxText.innerText = "Click!";
+            appeared = true;
+            chartDisplayed = false;
+        },delay)
+
+        itv1 = setInterval(function time(){
+            if(isClicked)
+            {
+                timeElap += 10;
+                console.log(timeElap);
+                clearInterval(itv1);
+                scoreText.innerText = "SCORE: " + timeElap + " ms"
+                setTimeout(function fadeIn(){
+                    hitBox.style.opacity = "25%";
+                    // hitBox.className =  "fadeout";
+                    setTimeout(() => {
+                        canvasDiv.style.display = "block";
+                        chartDisplayed = true;
+                        end = true;
+                        startButton.innerHTML = "PLAY AGAIN";
+                    }, 800)
+                },1500)
+            }
+            else if(appeared)
+            {
+                timeElap += 10;
+            }
+        },10)
     }
     else {
         hitBox.style.display = "block";
         
         var delay = randomPos(2,7) * 1000;
         setTimeout(function appear(){
-            hitBox.style.backgroundColor = "#51da51";
+            hitBox.style.backgroundColor = "rgb(93 240 101)";
             hitBox.style.borderBottom = "solid 3px #449449";
             hitBoxText.innerText = "Click!";
             hitBoxText.style.marginLeft = "-47px";
@@ -31,6 +81,18 @@ function startGame() {
                 timeElap += 10;
                 console.log(timeElap);
                 clearInterval(itv1);
+                scoreText.innerText = "SCORE: " + timeElap + " ms"
+                setTimeout(function fadeIn(){
+                    hitBox.style.opacity = "25%";
+                    // hitBox.className =  "fadeout";
+                    setTimeout(() => {
+                        canvasDiv.style.display = "block";
+                        chartDisplayed = true;
+                        end = true;
+                        isClicked = false;
+                        startButton.innerHTML = "PLAY AGAIN";
+                    }, 800)
+                },1500)
             }
             else if(appeared)
             {

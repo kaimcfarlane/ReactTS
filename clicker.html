@@ -44,10 +44,10 @@
         <section id="game">
             <header id="gameHeader">
                 <button id="startButton" onclick="startGame()">START</button>
-                <h1>SCORE</h1>
+                <h1 id="scoreText">SCORE</h1>
                 <h1 id="helpTitle" onclick="revealHelpText()">HELP</h1>
             </header>
-            <text id="helpText">Click and hold the green button until it turns yellow. Then when the button turns green release the button as quick as possible.</text>
+            <text id="helpText">Click and hold the green button until it turns yellow. Then when the button turns green release the button as quick as possible. $$$ means your test has been successful</text>
             <h2 id="time">TIME: 30</h2>
 
             <div id="clickArea">
@@ -66,6 +66,13 @@
                 <!-- <img id="check" alt="" src="checkmark.png"> -->
         </a>
         
+        <div id="canvasDiv">
+            <canvas id="myChart"></canvas>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script defer src="chartClick.js"></script>        
+        </div >   
+
     </div >   
 </body>
 </html>
