@@ -128,3 +128,7 @@ function randomPos(min, max) {
     return Math.random() * (max - min) + min;
 }
 
+hitBox.addEventListener('focus', () => {
+    hitBox.style.backgroundColor = "#ffe733";
+  });
+
