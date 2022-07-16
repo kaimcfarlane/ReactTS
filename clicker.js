@@ -31,8 +31,8 @@ function startGame() {
         setTimeout(function appear(){
             hitBox.style.backgroundColor = "rgb(93 240 101)";
             hitBox.style.borderBottom = "solid 3px #449449";
-            hitBoxText.innerText = "Click!";
-            hitBoxText.style.marginLeft = "-47px";
+            hitBoxText.innerText = "Release!";
+            hitBoxText.style.marginLeft = "-118px";
             // hitBoxText.innerText = "Click!";
             appeared = true;
             chartDisplayed = false;
@@ -70,8 +70,8 @@ function startGame() {
         setTimeout(function appear(){
             hitBox.style.backgroundColor = "rgb(93 240 101)";
             hitBox.style.borderBottom = "solid 3px #449449";
-            hitBoxText.innerText = "Click!";
-            hitBoxText.style.marginLeft = "-47px";
+            hitBoxText.innerText = "Release!";
+            hitBoxText.style.marginLeft = "-118px";
             // hitBoxText.innerText = "Click!";
             appeared = true;
         },delay)
