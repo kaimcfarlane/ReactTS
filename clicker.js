@@ -1,4 +1,4 @@
-
+var mobHelpText = "Click START, the button will start off red. Wait until the button turns green and CLICK it as quick as possible. NOTE: Wait until results display before playing again.";
 var hitBox = document.getElementById("hitBox");
 var hitBoxText = document.getElementById("hitBoxText")
 var isClicked = false;
@@ -10,6 +10,14 @@ var chartDisplayed = false;
 var scoreText = document.getElementById("scoreText");
 var delay = 0;
 // var check = document.getElementById("check");
+
+setInterval(() =>{
+    if(screen.width <=450)
+    {
+        helpText.innerText = mobHelpText;
+    }
+})
+
 function startGame() {
     if(end) {
         

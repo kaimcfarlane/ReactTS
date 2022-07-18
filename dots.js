@@ -3,6 +3,21 @@ var timer = document.getElementById("time");
 let startTime = 30;
 var startButton = document.getElementById("startButton");
 var canvasDiv = document.getElementById("canvasDiv");
+
+setInterval(
+    () => {
+        if(screen.width <=450){
+            dotFarPoint = 86;
+            console.log("Mobile View");
+        }
+        else
+        {
+            dotFarPoint = 93;
+            console.log("Tablet/Desktop View");
+        }
+    }, 5000
+)
+
 function startGame() {
     if(timerVis) {
         timer.style.display = "none";
@@ -120,8 +135,9 @@ function startGame() {
     }
 }
 
+var dotFarPoint = 93;
 function setSpawn() {
-    document.getElementsByClassName("dot")[0].style.right = randomPos(0,93) + "%";
+    document.getElementsByClassName("dot")[0].style.right = randomPos(0,dotFarPoint) + "%";
     document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
     var num = Math.round(Math.random());
     if (num==0) {
@@ -161,7 +177,9 @@ function score() {
         document.getElementsByClassName("dot")[0].style.background = red;
     }
 
-    document.getElementsByClassName("dot")[0].style.right = randomPos(0,93) + "%";
+    
+
+    document.getElementsByClassName("dot")[0].style.right = randomPos(0,dotFarPoint) + "%";
     document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
     console.log("color is " + document.getElementsByClassName("dot")[0].style.background + " and score is " + points);
 }
