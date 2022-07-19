@@ -1,6 +1,8 @@
 @media (max-width: 450px) {
   #mainTitle {
     /* padding-top: 105px; */
-    padding-top: 24px;
+    /* padding-top: 24px; */
+    padding-top: 0px;
+    font-size: 86px;
   }
 }
