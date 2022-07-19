@@ -1,4 +1,4 @@
-var mobHelpText = "Click START, the button will start off red. Wait until the button turns green and CLICK it as quick as possible. NOTE: Wait until results display before playing again.";
+var mobHelpText = "Click START, the button will start off red. Wait until the button turns green and CLICK it as quick as possible. \n $$$ Means your attempt was successful. \n NOTE: Wait until results display before playing again.";
 var hitBox = document.getElementById("hitBox");
 var hitBoxText = document.getElementById("hitBoxText")
 var isClicked = false;
@@ -9,6 +9,7 @@ var canvasDiv = document.getElementById("canvasDiv");
 var chartDisplayed = false;
 var scoreText = document.getElementById("scoreText");
 var delay = 0;
+// var helpText = document.getElementById("helpText");
 // var check = document.getElementById("check");
 
 setInterval(() =>{
@@ -26,9 +27,17 @@ function startGame() {
         if(helpText.style.display == "block") {
             helpText.style.display = "none";
         }
-        hitBoxText.innerText = "Click!";
         hitBoxText.style.marginLeft = "-47px";
         // hitBoxText.innerText = "Click!";
+        if(screen.width <= 450)
+        {
+            hitBoxText.innerText = "Wait!";
+            hitBoxText.style.marginLeft = "-60px"
+        }
+        else
+        {
+            hitBoxText.innerText = "Click!";
+        }
         hitBox.style.opacity = "100%";
         hitBox.style.backgroundColor = "#ff8181";
         timeElap = 0;
@@ -39,8 +48,17 @@ function startGame() {
         setTimeout(function appear(){
             hitBox.style.backgroundColor = "rgb(93 240 101)";
             hitBox.style.borderBottom = "solid 3px #449449";
-            hitBoxText.innerText = "Release!";
-            hitBoxText.style.marginLeft = "-118px";
+            if(screen.width <= 450)
+            {
+                hitBoxText.innerText = "Click!";
+                hitBoxText.style.marginLeft = "-63px";
+            }
+            else
+            {
+                hitBoxText.innerText = "Release!";
+                hitBoxText.style.marginLeft = "-118px";
+            }
+            
             // hitBoxText.innerText = "Click!";
             appeared = true;
             chartDisplayed = false;
@@ -72,14 +90,34 @@ function startGame() {
         },10)
     }
     else {
+        var helpText = document.getElementById("helpText");
+        if(helpText.style.display == "block") {
+            helpText.style.display = "none";
+        }
         hitBox.style.display = "block";
+        if(screen.width <= 450)
+        {
+            hitBoxText.innerText = "Wait!";
+        }
+        else
+        {
+            hitBoxText.innerText = "Click!";
+        }
         
         delay = randomPos(2,7) * 1000;
         setTimeout(function appear(){
             hitBox.style.backgroundColor = "rgb(93 240 101)";
             hitBox.style.borderBottom = "solid 3px #449449";
-            hitBoxText.innerText = "Release!";
-            hitBoxText.style.marginLeft = "-118px";
+            if(screen.width <= 450)
+            {
+                hitBoxText.innerText = "Click!";
+                hitBoxText.style.marginLeft = "-63px";
+            }
+            else
+            {
+                hitBoxText.innerText = "Release!";
+                hitBoxText.style.marginLeft = "-118px";
+            }
             // hitBoxText.innerText = "Click!";
             appeared = true;
         },delay)
@@ -128,8 +166,15 @@ function hit() {
     console.log("HIT");
     isClicked = true;
     // hitBoxText.innerText = "$";
+    if(screen.width <= 450)
+    {
+        hitBoxText.style.marginLeft = "-29px";
+    }
+    else
+    {
+        hitBoxText.style.marginLeft = "-15px";
+    }
     hitBoxText.innerText = "$$$";
-    hitBoxText.style.marginLeft = "-15px";
 }
 
 function randomPos(min, max) {

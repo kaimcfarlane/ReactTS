@@ -6,7 +6,8 @@
 
   #hitBox {
     margin: auto;
-    margin-top: 125px;
+    /* margin-top: 125px; */
+    margin-top: 43px;
     position: relative;
     background-color: #ff8181;
     display: none;
