@@ -40,6 +40,7 @@ function startGame() {
         }
         hitBox.style.opacity = "100%";
         hitBox.style.backgroundColor = "#ff8181";
+        hitBox.style.borderBottom = "solid 3px #bd6565";
         timeElap = 0;
         scoreText.innerText = "Score";
         appeared = false;

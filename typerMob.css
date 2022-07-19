@@ -15,6 +15,10 @@
   .tg-list {
     top: 21%;
   }
+
+  nav ul {
+    z-index: 1;
+  }
 }
 
 #gameContent {
