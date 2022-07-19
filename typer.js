@@ -54,7 +54,15 @@ function startGame() {
                 WPM.innerText = "WPM " + wordsTyped;
                 startButton.innerHTML = "PLAY AGAIN";
                 canvasDiv.style.display = "block";
-                gameContent.style.marginTop = "65px";
+                if(screen.width <= 450)
+                {
+                    gameContent.style.marginTop = "28px";
+                    canvasDiv.style.marginTop = "30px";
+                }
+                else
+                {
+                    gameContent.style.marginTop = "65px";
+                }
             }
         }, 1000);
     }
@@ -81,7 +89,15 @@ function startGame() {
                 LPM.innerText = "LPM " + charTyped;
                 WPM.innerText = "WPM " + wordsTyped;
                 startButton.innerHTML = "PLAY AGAIN";
-                gameContent.style.marginTop = "65px";
+                if(screen.width <= 450)
+                {
+                    gameContent.style.marginTop = "28px";
+                    canvasDiv.style.marginTop = "30px";
+                }
+                else
+                {
+                    gameContent.style.marginTop = "65px";
+                }
                 canvasDiv.style.display = "block";
             }
         }, 1000);

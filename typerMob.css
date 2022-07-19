@@ -11,4 +11,12 @@
   h2::before {
     opacity: 0%;
   }
+
+  .tg-list {
+    top: 21%;
+  }
+}
+
+#gameContent {
+  margin-top: 35px;
 }

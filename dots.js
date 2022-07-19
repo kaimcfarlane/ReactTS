@@ -3,6 +3,7 @@ var timer = document.getElementById("time");
 let startTime = 30;
 var startButton = document.getElementById("startButton");
 var canvasDiv = document.getElementById("canvasDiv");
+var dotFarPoint = 93;
 
 setInterval(
     () => {
@@ -40,7 +41,7 @@ function startGame() {
         timer.style.display = "block";
         timerVis = true;
         document.getElementsByClassName("dot")[0].style.display = "block";
-        document.getElementsByClassName("dot")[0].style.right = randomPos(0,93) + "%";
+        document.getElementsByClassName("dot")[0].style.right = randomPos(0,dotFarPoint) + "%";
         document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
         var itv1 = setInterval(function countDown() {
             startTime--;
@@ -90,7 +91,7 @@ function startGame() {
         timer.style.display = "block";
         timerVis = true;
         document.getElementsByClassName("dot")[0].style.display = "block";
-        document.getElementsByClassName("dot")[0].style.right = randomPos(0,93) + "%";
+        document.getElementsByClassName("dot")[0].style.right = randomPos(0,dotFarPoint) + "%";
         document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
         var itv1 = setInterval(function countDown() {
             startTime--;
@@ -135,7 +136,7 @@ function startGame() {
     }
 }
 
-var dotFarPoint = 93;
+
 function setSpawn() {
     document.getElementsByClassName("dot")[0].style.right = randomPos(0,dotFarPoint) + "%";
     document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
