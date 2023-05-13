@@ -1,15 +1,19 @@
+//Instance variables
+var typedWords = 0;
+var itv1 = setInterval(updateChart,100)
+var canvasDiv = document.getElementById("canvasDiv");
+var scoreProcessed = true;
 const labels = [
     "Slow",
-    "Moderate",
-    "Quick",
-    "Swift",
+    "Average",
+    "Fluent",
+    "Fast",
     "Pro",
   ];
-
 var data = {
         labels: labels,
         datasets: [{
-          label: 'DOTS SPEED (HITS)  ',
+          label: 'TYPER SPEED (WPM)  ',
           backgroundColor: ['rgba(255, 99, 132, 0.2)',
           'rgba(255, 205, 86, 0.2)',
           'rgba(75, 192, 192, 0.2)',
@@ -23,7 +27,7 @@ var data = {
             'rgb(153, 102, 255)'
           ],
           borderWidth: 1,
-          data: [5, 7, 10, 13, 15],
+          data: [25, 45, 65, 85, 100],
         }, {
           type: "line",
           label: 'User Score',
@@ -34,36 +38,34 @@ var data = {
         },
     ]
       };
-
-  var config = {
+var config = {
     type: 'bar',
     data: data,
     options: {
-        indexAxis: "y"
+        backgroundColor: "blue"
     }
 };
 
-  var myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
+//Initalize Chart
+var myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);
 
-  var itv1 = setInterval(updateChart,100)
-  
-var scoreProcessed = true;
+//Updates Chart
 function updateChart() {
-    if(startTime==0 && !scoreProcessed) {  
+    if(startTime==0 && !scoreProcessed) {
         setTimeout(function rise(){
-            myChart.config.data.datasets[1].data.push(points);
-            myChart.config.data.datasets[1].data.push(points);
-            myChart.config.data.datasets[1].data.push(points);
-            myChart.config.data.datasets[1].data.push(points);
-            myChart.config.data.datasets[1].data.push(points);
+            myChart.config.data.datasets[1].data.push(wordsTyped);
+            myChart.config.data.datasets[1].data.push(wordsTyped);
+            myChart.config.data.datasets[1].data.push(wordsTyped);
+            myChart.config.data.datasets[1].data.push(wordsTyped);
+            myChart.config.data.datasets[1].data.push(wordsTyped);
             myChart.update();
         },2000)
         scoreProcessed = true;
     }
-    else if(startTime == 30 && scoreProcessed)
+    else if(startTime == 60 && scoreProcessed)
     {
         scoreProcessed = false;
         myChart.config.data.datasets[1].data.pop();

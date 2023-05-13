@@ -1,23 +1,29 @@
+//Instance variables
 var timerVis = false
 var timer = document.getElementById("time");
 let startTime = 30;
 var startButton = document.getElementById("startButton");
 var canvasDiv = document.getElementById("canvasDiv");
+var dotFarPoint = 93;
+var red = "#ff392f";
+var green = "greenyellow";
+var points = 0
+var userScore = document.getElementById("userScore");
 
+//Design for Mobile Views
 setInterval(
     () => {
         if(screen.width <=450){
             dotFarPoint = 86;
-            console.log("Mobile View");
         }
         else
         {
             dotFarPoint = 93;
-            console.log("Tablet/Desktop View");
         }
     }, 5000
 )
 
+//Initialzies Game on Start
 function startGame() {
     if(timerVis) {
         timer.style.display = "none";
@@ -25,16 +31,13 @@ function startGame() {
         document.getElementsByClassName("dot")[0].style.display = "none";
     }
     if(startTime<=0) {
-        
         canvasDiv.style.display = "none";
         var helpText = document.getElementById("helpText");
         if(helpText.style.display == "block") {
             helpText.style.display = "none";
         }
-
         userScore.innerHTML = "SCORE:";
         points = 0;
-
         startButton.innerHTML = "START";
         startTime = 30;
         timer.style.display = "block";
@@ -44,7 +47,6 @@ function startGame() {
         document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
         var itv1 = setInterval(function countDown() {
             startTime--;
-            console.log("success " + startTime);
             timer.innerHTML = "TIME: " + startTime;
             if(startTime <= 0 || startTime < 1)
             {
@@ -94,7 +96,6 @@ function startGame() {
         document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
         var itv1 = setInterval(function countDown() {
             startTime--;
-            console.log("success " + startTime);
             timer.innerHTML = "TIME: " + startTime;
             if(startTime <= 0 || startTime < 1)
             {
@@ -104,7 +105,6 @@ function startGame() {
                 canvasDiv.style.display = "block";
                 timer.innerText = "Times Up!";
             }
-
         }, 1000);
         var space = 2500;
         function start()
@@ -131,11 +131,10 @@ function startGame() {
         }, space);
         }
         start();
-
     }
 }
 
-var dotFarPoint = 93;
+//Sets Dots random spawn point
 function setSpawn() {
     document.getElementsByClassName("dot")[0].style.right = randomPos(0,dotFarPoint) + "%";
     document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
@@ -148,15 +147,11 @@ function setSpawn() {
     }
 }
 
-var red = "#ff392f";
-var green = "greenyellow";
-var points = 0
-var userScore = document.getElementById("userScore");
+//Sets Dots inital background to greeen
 document.getElementsByClassName("dot")[0].style.background = green;
-function score() { 
-    //Issue is that color isn't being assinged any value ( just go to console and fix)
-    // color = document.getElementsByClassName("dot")[0].style.background;
 
+//Increases score if dot clicked
+function score() { 
     if(document.getElementsByClassName("dot")[0].style.background == green )
     {
         points++;
@@ -167,8 +162,6 @@ function score() {
         points--;
         userScore.innerHTML = "SCORE: " + points;
     }
-
-
     var num = Math.round(Math.random());
     if (num==0) {
         document.getElementsByClassName("dot")[0].style.background = green;
@@ -176,22 +169,11 @@ function score() {
     else {
         document.getElementsByClassName("dot")[0].style.background = red;
     }
-
-    
-
     document.getElementsByClassName("dot")[0].style.right = randomPos(0,dotFarPoint) + "%";
     document.getElementsByClassName("dot")[0].style.top = randomPos(100,600) + "px";
-    console.log("color is " + document.getElementsByClassName("dot")[0].style.background + " and score is " + points);
 }
 
+//Returns random position
 function randomPos(min, max) {
     return Math.random() * (max - min) + min;
 }
-
-// function getRandomSpawn() {
-//     var pos = [randomPos(0,96) + "%", randomPos(100,727) + "px"]
-//     return pos;
-// }
-
-
-

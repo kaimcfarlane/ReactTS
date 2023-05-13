@@ -9,7 +9,6 @@ body {
 }
 
 #gameChoiceBtn {
-  /* padding-top: 20px; */
   color: aliceblue;
   font-size: 20px;
   background-color: black;
@@ -19,7 +18,6 @@ body {
   border-radius: 4px;
   padding: 3px;
   position: relative;
-  /* pointer-events: none; */
 }
 
 .dropDownItems {
@@ -40,11 +38,8 @@ body {
 
 #game {
   position: relative;
-  /* padding-top: 10px;
-  padding-bottom: 10px; */
   margin-top: 25px;
   background-color: rgba(255, 255, 255, 0.358);
-  /* opacity: 50%; */
 }
 
 #gameHeader {
@@ -64,10 +59,6 @@ body {
   display: none;
 }
 
-/* br:nth-child(1) {
-  color: #e74c3c;
-} */
-
 #helpTitle {
   cursor: pointer;
   text-shadow: 0 0 rgb(255, 255, 255), 0 1.2em #626ef5;
@@ -86,17 +77,6 @@ body {
   text-align: center;
 
   display: none;
-}
-
-/* #helpText .hover {
-  color: grey;
-} */
-
-#clickArea {
-  /* width: 100vh;
-  height: 100vh;
-  margin: 25px;
-  background-color: aqua; */
 }
 
 .dots {
@@ -122,7 +102,6 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  /* background-color: transparent; */
   border: 2px solid #e74c3c;
   border-radius: 0.6em;
   color: #e74c3c;
@@ -132,14 +111,11 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
-  /* margin: 20px; */
   padding: 5.2px 25.8px;
   text-decoration: none;
-  /* text-align: center;
-  text-transform: uppercase;
-  font-family: "Montserrat", sans-serif; */
   font-weight: 700;
 }
+
 #startButton:hover,
 #startButton:focus {
   color: #fff;
@@ -149,13 +125,13 @@ body {
 #startButton {
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
+
 #startButton:hover {
   box-shadow: 0 0 40px 40px #e74c3c inset;
 }
 
 #myChart {
   background: aliceblue;
-  /* margin-top: 15px; */
   margin-top: 100px;
   margin-left: 15px;
   margin-right: 15px;

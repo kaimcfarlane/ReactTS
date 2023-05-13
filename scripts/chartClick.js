@@ -1,3 +1,6 @@
+//Instance variables
+var itv1 = setInterval(updateChart,100)
+var scoreProcessed = true;
 const labels = [
     "Top 1%",
     "Top 10%",
@@ -14,7 +17,6 @@ const labels = [
     "98%",
     "100%"
   ];
-
 var data = {
         labels: labels,
         datasets: [{
@@ -44,8 +46,7 @@ var data = {
         },
     ]
       };
-
-  var config = {
+var config = {
     type: 'bar',
     data: data,
     options: {
@@ -53,14 +54,13 @@ var data = {
     }
 };
 
-  var myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-
-  var itv1 = setInterval(updateChart,100)
+//Initializes Chart
+var myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);
   
-var scoreProcessed = true;
+//Updates Chart
 function updateChart() {
     if(chartDisplayed && !scoreProcessed) {  
         setTimeout(function rise(){

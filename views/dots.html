@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReactTS</title>
-    <script defer src="dots.js"></script>
-    <script defer src="reaction.js"></script>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="dots.css">
-    <link rel="stylesheet" href="dotsMob.css">
+    <script defer src="/scripts/dots.js"></script>
+    <script defer src="/scripts/reaction.js"></script>
+    <link rel="stylesheet" href="/views/index.css">
+    <link rel="stylesheet" href="/views/dots.css">
+    <link rel="stylesheet" href="/views/dotsMob.css">
 </head>
 <body>
     <div class="area">
@@ -24,7 +24,6 @@
             <li></li>
             <li></li>
         </ul>
-
         <header id="header">
             <h1 id="mainTitle">
                 Test Your DOTS Reaction Speed!
@@ -34,13 +33,12 @@
                                 Choose a Game
                     </button>
                 <div id="gameSelect" class="dropDownItems">
-                    <a href="dots.html">DOTS</a>
-                    <a href="typer.html">TYPER</a>
-                    <a href="clicker.html">CLICKER</a>
+                    <a href="/views/dots.html">DOTS</a>
+                    <a href="/views/typer.html">TYPER</a>
+                    <a href="/views/clicker.html">CLICKER</a>
                 </div>
             </div>
         </header>
-        
         <section id="game">
             <header id="gameHeader">
                 <button id="startButton" onclick="startGame()">START</button>
@@ -48,28 +46,17 @@
                 <h1 id="helpTitle" onclick="revealHelpText()">HELP</h1>
             </header>
             <text id="helpText">Click the green buttons as quick as possible, however don't click the red ones, they lose points! You have until Times Up!
-
             </text>
             <h2 id="time">TIME: 30</h2>
-            
             <ul class="dots">
                 <li onclick="score()" class="dot"></li>
-                <!-- <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li> -->
             </ul>
-
-            
-            
         </section>
-
         <div id="canvasDiv">
             <canvas id="myChart"></canvas>
           </div>
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-          <script defer src="chartDot.js"></script>        
+          <script defer src="/scripts/chartDot.js"></script>        
         </div >   
     </div>
 </body>

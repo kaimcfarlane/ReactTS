@@ -15,8 +15,24 @@ var LPM = document.getElementById("LPM");
 var WPM = document.getElementById("WPM");
 var chart = document.getElementById("myChart");
 var gameContent = document.getElementById("gameContent");
+var typed = false;
+var x=0;
+var i=0;
+var light=true;
+var easyMode = document.getElementsByClassName("difficultyChoice")[0];
+var medMode = document.getElementsByClassName("difficultyChoice")[1];
+var hardMode = document.getElementsByClassName("difficultyChoice")[2];
+var background = document.getElementById("background");
+var gameChoiceBtn = document.getElementById("gameChoiceBtn");
+var gameSelect = document.getElementById("gameSelect");
+var dif = "hard";
+var isMusic = true;
+var floatWords = document.getElementById('floatyCircles').getElementsByTagName('li');
+var floatItem = document.getElementsByClassName("word");
+const wordArr1 = ["String", "Listen", "Keyboard", "Cloud", "Piano", "Headset", "Note", "Sound", "Volume", "Lyric"];
+const wordArr2 = ["Apple", "Banana", "Carrot", "Diamond", "Earth", "Fire", "Gorilla", "Helmet", "Iceberg", "Jackal"];
 
-//runs game when start button clicked and resets game when button clicked again
+//Initalizes Game on Start
 function startGame() {
     if(timerVis) {
         timer.style.display = "none";
@@ -43,7 +59,6 @@ function startGame() {
         returnSnippet(text);
         var itv1 = setInterval(function countDown() {
             startTime--;
-            console.log("success " + startTime);
             timer.innerHTML = "TIME: " + startTime;
             if(startTime <= 0 || startTime < 1)
             {
@@ -63,15 +78,11 @@ function startGame() {
         timerVis = true;
         text =  getRandomText();
         returnSnippet(text);
-        // textDisplay.innerText = returnSnippet(text);
-        
         var itv1 = setInterval(function countDown() {
             startTime--;
-            // console.log("success " + startTime);
             timer.innerHTML = "TIME: " + startTime;
             if(startTime == 1){
                 endWordCount();
-                console.log(wordsTyped);
             }
             if(startTime <= 0 || startTime < 1)
             {
@@ -88,10 +99,7 @@ function startGame() {
     }
 }
 
-//iterates through each input and displayed character every time the user types
-//adds green or red to displayed text as well as keeps score
-var typed = false;
-var x=0;
+//Score and type-checking functionality
 inputText.addEventListener("input", () => {
     var disText = textDisplay.querySelectorAll('span');
     var inputCharacters = inputText.value.split('');
@@ -108,7 +116,6 @@ inputText.addEventListener("input", () => {
             disCharacter.classList.add("correct");
             disCharacter.classList.remove("incorrect");
             score++;
-            console.log(score);
             typed = true;
         }
         else 
@@ -117,28 +124,24 @@ inputText.addEventListener("input", () => {
             disCharacter.classList.add("incorrect");
             score--;
             typed = true;
-            console.log(score);
         }
         docScore.innerText = "SCORE " + score;
     })
     if (typed) 
     {
         returnSnippet(text);
-        console.log(score);
         disText.forEach((disCharacter, pos) => {
             var inputChar = inputCharacters[pos];
             if(inputChar == " ") 
             {
                 wordsTyped++;
-                console.log(wordsTyped + " words have been typed");
             }
         })
     }
     charTyped++;
-
-    console.log("changed");
 })
 
+//Retrieves User Word Count
 function endWordCount() {
     var disText = textDisplay.querySelectorAll('span');
     var inputCharacters = inputText.value.split('');
@@ -147,14 +150,11 @@ function endWordCount() {
         if(inputChar == " ") 
         {
             wordsTyped++;
-            console.log(wordsTyped + " words have been typed");
         }
     })
 }
 
-
-//returns snippet of text from whole text and keeps a minimum number to keep track of where text it is
-var i=0;
+//Returns snippet of text from storage for user to type
 function returnSnippet(text) {
     var newText = text.split(' ').slice(i, i+=20).join(' ');
     i+=20;
@@ -178,7 +178,7 @@ function returnSnippet(text) {
     })
 }
 
-var light=true;
+//Animation for light-mode
 function lightMode() {
     if(light)
     {
@@ -192,53 +192,22 @@ function lightMode() {
     }
 }
 
-var easyMode = document.getElementsByClassName("difficultyChoice")[0];
-var medMode = document.getElementsByClassName("difficultyChoice")[1];
-var hardMode = document.getElementsByClassName("difficultyChoice")[2];
-var background = document.getElementById("background");
-var gameChoiceBtn = document.getElementById("gameChoiceBtn");
-var gameSelect = document.getElementById("gameSelect");
-var dif = "hard";
-
-// function changeBtnColor() {
-//     if(dif=="easy") {
-//         gameChoiceBtn.style.background = "#4ec864";
-//     }
-//     else if(dif=="med") {
-//         gameChoiceBtn.style.background = "orange";
-//     }
-//     else {
-//         gameChoiceBtn.style.background = "#c84e4e";
-//     }
-// }
-
-
-//keeps track of diffcutly selected
+//Keeps track of diffcutly selected
 function chooseDifEasy() {
     dif ="easy";
     background.style.background = "#4ec864";
     gameChoiceBtn.style.background = "#4ec864";
-    // opaqueBackground.style.backgroundColor =  "rgb(0 0 0 / 33%)";
-    // gameChoiceBtn.addEventListener("mouseover", changeBtnColor);
 }
 function chooseDifMed() {
     dif = "med";
     background.style.background = "orange";
     gameChoiceBtn.style.background = "orange";
-    // gameChoiceBtn.addEventListener("mouseover", changeBtnColor);
 }
 function chooseDifHard() {
     dif = "hard";
     background.style.background = "#c84e4e";
     gameChoiceBtn.style.background = "#c84e4e";
-    // gameChoiceBtn.addEventListener("mouseover", changeBtnColor);
 }
-
-var isMusic = true;
-var floatWords = document.getElementById('floatyCircles').getElementsByTagName('li');
-var floatItem = document.getElementsByClassName("word");
-const wordArr1 = ["String", "Listen", "Keyboard", "Cloud", "Piano", "Headset", "Note", "Sound", "Volume", "Lyric"];
-const wordArr2 = ["Apple", "Banana", "Carrot", "Diamond", "Earth", "Fire", "Gorilla", "Helmet", "Iceberg", "Jackal"];
 
 //keeps track of game mode selected
 function gameModeSelect(){
@@ -259,16 +228,13 @@ function gameModeSelect(){
         
         for(var i=0;i<10;i++) {
             var img = document.getElementsByClassName("img")[i];
-            console.log(floatWords);
             img.style.display = "block";
             var img2 = document.getElementsByClassName("img2")[i];
             img2.style.display = "none";
             floatItem[i].innerHTML = wordArr1[i];
         }
     }
-    
 }
-
 
 //gets randome Text based on game modes from the arrays below.
 function getRandomText() {
@@ -291,13 +257,16 @@ function getRandomText() {
         return hardWords[randomNum(0,2)];
     }
 
-}//returns ranfom number between a range
+}
+
+//returns random number between a range
 function randomNum(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//Storage of Songs and Texts for User to Type
 const easySongs = ["I've never seen a diamond in the flesh. \
 I cut my teeth on wedding rings in the movies. \
 And I'm not proud of my address. \
@@ -667,11 +636,3 @@ and rack her. \
  4 It was supper-time, her father just in from the field and turning the horses loose at the water-trough, so \
 off she sped to greet him, her bare legs flashing, her throat too tight to cry out, passionate to \
 communicate her excitement, to find response. "];
-
-
-
-
-//add new img to apple in html that is circular or block, make text dissapear when imgs on, we start on music so imgs firts then text;
-
-// get cricle li from index.css for this html page and make background nothing.
-//#4ec864, #c84e4e, #2d81c7
